@@ -1,15 +1,9 @@
 'use client'
-import {useState} from "react";
+import React, {useState} from "react";
 import {Box} from "@mui/system";
 import {Button, Menu, MenuItem, Chip} from "@mui/material";
 import {buttonStyles, menuStyles  , getChipStyles} from "@/styles/filterStyles";
-interface FilterDropdownProps {
-    value: string;
-    options: readonly string[];
-    onSelect: (value: string) => void;
-    label: string;
-}
-
+import {FilterDropdownProps} from "@/types/types";
 export function FilterDropdown({ value, options, onSelect, label }: FilterDropdownProps) {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 

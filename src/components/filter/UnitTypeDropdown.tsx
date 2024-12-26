@@ -1,15 +1,10 @@
-'use client'
-import {useState} from "react";
+
+import React, {useState} from "react";
 import {Box} from "@mui/system";
 import {Button, Menu, MenuItem, Chip, Tabs, Tab} from "@mui/material";
 import {buttonStyles, menuStyles  , getChipStyles} from "@/styles/filterStyles";
 import {RESIDENTIAL,    COMMERCIAL} from "@/constants/filterOptions";
-
-interface UnitTypeDropdownProps {
-    value: string;
-    onSelect: (value: string) => void;
-}
-
+import {UnitTypeDropdownProps} from "@/types/types";
 export function UnitTypeDropdown({ value, onSelect }: UnitTypeDropdownProps) {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const [tabValue, setTabValue] = useState(0);

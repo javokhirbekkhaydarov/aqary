@@ -13,7 +13,6 @@ export default function Map() {
         width={220}
         height={74}
         priority
-        className=""
         draggable={false}
       />
       <button className="bg-primary font-geologica rounded-lg py-[10px] px-[16px]  text-white text-[14px] absolute  bottom-4 left-4 right-4">
