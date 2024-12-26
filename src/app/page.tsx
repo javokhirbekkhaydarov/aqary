@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import OutPut from "@/components/output/OutPut";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <main>
         <Hero />
       </main>
+      <OutPut />
     </div>
   );
 }

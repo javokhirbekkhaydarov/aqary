@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Filter from "./filter/FilterUi";
+import Map from "./map/Map";
 export default function Hero() {
   return (
     <div
@@ -19,6 +21,10 @@ export default function Hero() {
         style={{ width: "100%", maxWidth: "1440px", height: "auto" }}
         draggable={false}
       />
+      <div className="bottom_side absolute bottom-4 left-4 flex items-start justify-start gap-4">
+        <Map />
+        <Filter />
+      </div>
     </div>
   );
 }
