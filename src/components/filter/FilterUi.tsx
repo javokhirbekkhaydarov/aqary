@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button, Menu, MenuItem, Chip, Box } from "@mui/material";
+import { Button, Menu, MenuItem, Chip, Box, Tabs, Tab } from "@mui/material";
 
 const INITIAL_CATEGORY = "Sale";
 const CATEGORIES = ["Sale", "Rent", "Swap", "Investment"] as const;
@@ -14,6 +14,26 @@ const SECTIONS = [
   "Property",
   "Luxury Property",
   "Industry",
+] as const;
+
+const INITIAL_UNIT_TYPE = "Unit Type";
+
+const RESIDENTIAL = [
+  "Apartment",
+  "Pent House",
+  "Luxury Unit",
+  "Town House",
+  "Residential Floor",
+  "Residential Land",
+] as const;
+
+const COMMERCIAL = [
+  "Commercial Villa",
+  "Commercial Floor",
+  "Offices",
+  "Retail",
+  "Office",
+  "Shop",
 ] as const;
 
 const buttonStyles = {
@@ -45,21 +65,24 @@ const menuStyles = {
 };
 
 export default function FilterUI() {
-  // State for first dropdown (Categories)
   const [categoryAnchorEl, setCategoryAnchorEl] = useState<null | HTMLElement>(
     null
   );
   const [selectedCategory, setSelectedCategory] = useState(INITIAL_CATEGORY);
   const categoryOpen = Boolean(categoryAnchorEl);
 
-  // State for second dropdown (Sections)
   const [sectionAnchorEl, setSectionAnchorEl] = useState<null | HTMLElement>(
     null
   );
   const [selectedSection, setSelectedSection] = useState(INITIAL_SECTION);
   const sectionOpen = Boolean(sectionAnchorEl);
 
-  // Handlers for Categories dropdown
+  const [unitTypeAnchorEl, setUnitTypeAnchorEl] = useState<null | HTMLElement>(
+    null
+  );
+  const [selectedUnitType, setSelectedUnitType] = useState(INITIAL_UNIT_TYPE);
+  const unitTypeOpen = Boolean(unitTypeAnchorEl);
+
   const handleCategoryClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setCategoryAnchorEl(event.currentTarget);
   };
@@ -71,7 +94,6 @@ export default function FilterUI() {
     }
   };
 
-  // Handlers for Sections dropdown
   const handleSectionClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setSectionAnchorEl(event.currentTarget);
   };
@@ -80,6 +102,17 @@ export default function FilterUI() {
     setSectionAnchorEl(null);
     if (section) {
       setSelectedSection(section);
+    }
+  };
+
+  const handleUnitTypeClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setUnitTypeAnchorEl(event.currentTarget);
+  };
+
+  const handleUnitTypeClose = (unitType?: string) => {
+    setUnitTypeAnchorEl(null);
+    if (unitType) {
+      setSelectedUnitType(unitType);
     }
   };
 
@@ -105,6 +138,12 @@ export default function FilterUI() {
       paddingBottom: "16px !important",
     },
   });
+
+  const [tabValue, setTabValue] = useState(0);
+
+  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+    setTabValue(newValue);
+  };
 
   return (
     <div className="p-[25px] bg-white flex items-center justify-center gap-4 rounded-3xl">
@@ -205,6 +244,69 @@ export default function FilterUI() {
                   color="primary"
                   style={{ color: "#202020" }}
                   sx={getChipStyles(category === selectedCategory)}
+                />
+              </MenuItem>
+            ))}
+          </div>
+        </Menu>
+      </Box>
+      {/* Search Input */}
+      <div className="h-[54px] min-w-[348px] p-[16px] gap-[12px] rounded-[10px] border-t border-[#202020] text-[#919B9B] bg-white border flex items-start">
+        <img src="/assets/icons/search.svg" alt="search" />
+        <input
+          style={{ width: "100%" }}
+          type="text"
+          placeholder="City, community or building"
+          className="bg-transparent border-0 outline-none"
+        />
+      </div>
+      {/* Unit Type Dropdown */}
+      <Box className="filter_top" display="flex" alignItems="center" gap={2}>
+        <Button
+          variant="outlined"
+          onClick={handleUnitTypeClick}
+          endIcon={
+            <img
+              src="/assets/icons/down.svg"
+              alt="down"
+              className={!unitTypeOpen ? "" : "rotate-180"}
+            />
+          }
+          sx={buttonStyles}
+        >
+          {selectedUnitType}
+        </Button>
+
+        <Menu
+          anchorEl={unitTypeAnchorEl}
+          open={unitTypeOpen}
+          onClose={() => handleUnitTypeClose()}
+          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+          transformOrigin={{ vertical: "top", horizontal: "right" }}
+          sx={menuStyles}
+        >
+          {/* Tabs for Residential and Commercial */}
+          <Tabs value={tabValue} onChange={handleTabChange} centered>
+            <Tab label="Residential" />
+            <Tab label="Commercial" />
+          </Tabs>
+
+          <div className="grid grid-cols-3 gap-[2px] p-[4px_20px]">
+            {(tabValue === 0 ? RESIDENTIAL : COMMERCIAL).map((unit) => (
+              <MenuItem
+                key={unit}
+                onClick={() => handleUnitTypeClose(unit)}
+                sx={{
+                  "&:hover": { backgroundColor: "transparent" },
+                  padding: "4px",
+                }}
+              >
+                <Chip
+                  label={unit}
+                  variant={unit === selectedUnitType ? "filled" : "outlined"}
+                  color="primary"
+                  style={{ color: "#202020" }}
+                  sx={getChipStyles(unit === selectedUnitType)}
                 />
               </MenuItem>
             ))}
