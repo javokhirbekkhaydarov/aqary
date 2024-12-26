@@ -1,3 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+  font-family: "Geologica";
+  src: url("../assets/fonts/geologica/Geologica-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -39,4 +49,13 @@ a {
   html {
     color-scheme: dark;
   }
+}
+.hero-text {
+  font-family: Geologica;
+  font-size: 57px;
+  font-weight: 700;
+  line-height: 71.25px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
 }
