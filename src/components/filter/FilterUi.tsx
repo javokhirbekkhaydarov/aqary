@@ -2,39 +2,14 @@
 
 import { useState } from "react";
 import { Button, Menu, MenuItem, Chip, Box, Tabs, Tab } from "@mui/material";
+import { useSelector, useDispatch } from 'react-redux';
+import { setSection, setCategory, setUnitType, setSearchQuery } from '@/store/filterSlice';
+import type { RootState } from '@/store/store';
 
-const INITIAL_CATEGORY = "Sale";
 const CATEGORIES = ["Sale", "Rent", "Swap", "Investment"] as const;
-
-const INITIAL_SECTION = "Unit";
-const SECTIONS = [
-  "Projects",
-  "Unit",
-  "Luxury Unit",
-  "Property",
-  "Luxury Property",
-  "Industry",
-] as const;
-
-const INITIAL_UNIT_TYPE = "Unit Type";
-
-const RESIDENTIAL = [
-  "Apartment",
-  "Pent House",
-  "Luxury Unit",
-  "Town House",
-  "Residential Floor",
-  "Residential Land",
-] as const;
-
-const COMMERCIAL = [
-  "Commercial Villa",
-  "Commercial Floor",
-  "Offices",
-  "Retail",
-  "Office",
-  "Shop",
-] as const;
+const SECTIONS = ["Projects", "Unit", "Luxury Unit", "Property", "Luxury Property", "Industry"] as const;
+const RESIDENTIAL = ["Apartment", "Pent House", "Luxury Unit", "Town House", "Residential Floor", "Residential Land"] as const;
+const COMMERCIAL = ["Commercial Villa", "Commercial Floor", "Offices", "Retail", "Office", "Shop"] as const;
 
 const buttonStyles = {
   textTransform: "none",
@@ -50,9 +25,7 @@ const buttonStyles = {
   fontSize: "14px",
   justifyContent: "space-between",
   transition: "opacity 0.3s ease",
-  "&:hover": {
-    opacity: 1,
-  },
+  "&:hover": { opacity: 1 },
 };
 
 const menuStyles = {
@@ -65,55 +38,35 @@ const menuStyles = {
 };
 
 export default function FilterUI() {
-  const [categoryAnchorEl, setCategoryAnchorEl] = useState<null | HTMLElement>(
-    null
-  );
-  const [selectedCategory, setSelectedCategory] = useState(INITIAL_CATEGORY);
-  const categoryOpen = Boolean(categoryAnchorEl);
+  const dispatch = useDispatch();
+  const { section, category, unitType, searchQuery } = useSelector((state: RootState) => state.filter);
 
-  const [sectionAnchorEl, setSectionAnchorEl] = useState<null | HTMLElement>(
-    null
-  );
-  const [selectedSection, setSelectedSection] = useState(INITIAL_SECTION);
-  const sectionOpen = Boolean(sectionAnchorEl);
+  const [categoryAnchorEl, setCategoryAnchorEl] = useState<null | HTMLElement>(null);
+  const [sectionAnchorEl, setSectionAnchorEl] = useState<null | HTMLElement>(null);
+  const [unitTypeAnchorEl, setUnitTypeAnchorEl] = useState<null | HTMLElement>(null);
+  const [tabValue, setTabValue] = useState(0);
 
-  const [unitTypeAnchorEl, setUnitTypeAnchorEl] = useState<null | HTMLElement>(
-    null
-  );
-  const [selectedUnitType, setSelectedUnitType] = useState(INITIAL_UNIT_TYPE);
-  const unitTypeOpen = Boolean(unitTypeAnchorEl);
+  const handleSectionClick = (event: React.MouseEvent<HTMLButtonElement>) => setSectionAnchorEl(event.currentTarget);
+  const handleCategoryClick = (event: React.MouseEvent<HTMLButtonElement>) => setCategoryAnchorEl(event.currentTarget);
+  const handleUnitTypeClick = (event: React.MouseEvent<HTMLButtonElement>) => setUnitTypeAnchorEl(event.currentTarget);
 
-  const handleCategoryClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setCategoryAnchorEl(event.currentTarget);
-  };
-
-  const handleCategoryClose = (category?: string) => {
-    setCategoryAnchorEl(null);
-    if (category) {
-      setSelectedCategory(category);
-    }
-  };
-
-  const handleSectionClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setSectionAnchorEl(event.currentTarget);
-  };
-
-  const handleSectionClose = (section?: string) => {
+  const handleSectionClose = (newSection?: string) => {
     setSectionAnchorEl(null);
-    if (section) {
-      setSelectedSection(section);
-    }
+    if (newSection) dispatch(setSection(newSection));
   };
 
-  const handleUnitTypeClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setUnitTypeAnchorEl(event.currentTarget);
+  const handleCategoryClose = (newCategory?: string) => {
+    setCategoryAnchorEl(null);
+    if (newCategory) dispatch(setCategory(newCategory));
   };
 
-  const handleUnitTypeClose = (unitType?: string) => {
+  const handleUnitTypeClose = (newUnitType?: string) => {
     setUnitTypeAnchorEl(null);
-    if (unitType) {
-      setSelectedUnitType(unitType);
-    }
+    if (newUnitType) dispatch(setUnitType(newUnitType));
+  };
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setSearchQuery(event.target.value));
   };
 
   const getChipStyles = (selected: boolean) => ({
@@ -139,58 +92,39 @@ export default function FilterUI() {
     },
   });
 
-  const [tabValue, setTabValue] = useState(0);
-
-  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
-    setTabValue(newValue);
-  };
-
   return (
     <div className="p-[25px] bg-white flex items-center justify-center gap-4 rounded-3xl">
-      {/* Sections Dropdown */}
       <Box className="filter_top" display="flex" alignItems="center" gap={2}>
         <Button
           variant="outlined"
           onClick={handleSectionClick}
-          endIcon={
-            <img
-              src="/assets/icons/down.svg"
-              alt="down"
-              className={!sectionOpen ? "" : "rotate-180"}
-            />
-          }
+          endIcon={<img src="/assets/icons/down.svg" alt="down" className={!Boolean(sectionAnchorEl) ? "" : "rotate-180"} />}
           sx={buttonStyles}
         >
-          {selectedSection}
+          {section}
         </Button>
-
         <Menu
           anchorEl={sectionAnchorEl}
-          open={sectionOpen}
+          open={Boolean(sectionAnchorEl)}
           onClose={() => handleSectionClose()}
           anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
           transformOrigin={{ vertical: "top", horizontal: "right" }}
           sx={menuStyles}
         >
-          <div className="text-[22px] text-500 px-[28px] py-[8px]">
-            Select Section
-          </div>
+          <div className="text-[22px] text-500 px-[28px] py-[8px]">Select Section</div>
           <div className="grid grid-cols-3 gap-[2px] p-[4px_20px]">
-            {SECTIONS.map((section) => (
+            {SECTIONS.map((sectionOption) => (
               <MenuItem
-                key={section}
-                onClick={() => handleSectionClose(section)}
-                sx={{
-                  "&:hover": { backgroundColor: "transparent" },
-                  padding: "4px",
-                }}
+                key={sectionOption}
+                onClick={() => handleSectionClose(sectionOption)}
+                sx={{ "&:hover": { backgroundColor: "transparent" }, padding: "4px" }}
               >
                 <Chip
-                  label={section}
-                  variant={section === selectedSection ? "filled" : "outlined"}
+                  label={sectionOption}
+                  variant={sectionOption === section ? "filled" : "outlined"}
                   color="primary"
                   style={{ color: "#202020" }}
-                  sx={getChipStyles(section === selectedSection)}
+                  sx={getChipStyles(sectionOption === section)}
                 />
               </MenuItem>
             ))}
@@ -198,115 +132,90 @@ export default function FilterUI() {
         </Menu>
       </Box>
 
-      {/* Categories Dropdown */}
       <Box className="filter_top" display="flex" alignItems="center" gap={2}>
         <Button
           variant="outlined"
           onClick={handleCategoryClick}
-          endIcon={
-            <img
-              src="/assets/icons/down.svg"
-              alt="down"
-              className={!categoryOpen ? "" : "rotate-180"}
-            />
-          }
+          endIcon={<img src="/assets/icons/down.svg" alt="down" className={!Boolean(categoryAnchorEl) ? "" : "rotate-180"} />}
           sx={buttonStyles}
         >
-          {selectedCategory}
+          {category}
         </Button>
-
         <Menu
           anchorEl={categoryAnchorEl}
-          open={categoryOpen}
+          open={Boolean(categoryAnchorEl)}
           onClose={() => handleCategoryClose()}
           anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
           transformOrigin={{ vertical: "top", horizontal: "right" }}
           sx={menuStyles}
         >
-          <div className="text-[22px] text-500 px-[28px] py-[8px]">
-            Select Category
-          </div>
+          <div className="text-[22px] text-500 px-[28px] py-[8px]">Select Category</div>
           <div className="grid grid-cols-3 gap-[2px] p-[4px_20px]">
-            {CATEGORIES.map((category) => (
+            {CATEGORIES.map((categoryOption) => (
               <MenuItem
-                key={category}
-                onClick={() => handleCategoryClose(category)}
-                sx={{
-                  "&:hover": { backgroundColor: "transparent" },
-                  padding: "4px",
-                }}
+                key={categoryOption}
+                onClick={() => handleCategoryClose(categoryOption)}
+                sx={{ "&:hover": { backgroundColor: "transparent" }, padding: "4px" }}
               >
                 <Chip
-                  label={category}
-                  variant={
-                    category === selectedCategory ? "filled" : "outlined"
-                  }
+                  label={categoryOption}
+                  variant={categoryOption === category ? "filled" : "outlined"}
                   color="primary"
                   style={{ color: "#202020" }}
-                  sx={getChipStyles(category === selectedCategory)}
+                  sx={getChipStyles(categoryOption === category)}
                 />
               </MenuItem>
             ))}
           </div>
         </Menu>
       </Box>
-      {/* Search Input */}
+
       <div className="h-[54px] min-w-[348px] p-[16px] gap-[12px] rounded-[10px] border-t border-[#202020] text-[#919B9B] bg-white border flex items-start">
         <img src="/assets/icons/search.svg" alt="search" />
         <input
+          value={searchQuery}
+          onChange={handleSearchChange}
           style={{ width: "100%" }}
           type="text"
           placeholder="City, community or building"
           className="bg-transparent border-0 outline-none"
         />
       </div>
-      {/* Unit Type Dropdown */}
+
       <Box className="filter_top" display="flex" alignItems="center" gap={2}>
         <Button
           variant="outlined"
           onClick={handleUnitTypeClick}
-          endIcon={
-            <img
-              src="/assets/icons/down.svg"
-              alt="down"
-              className={!unitTypeOpen ? "" : "rotate-180"}
-            />
-          }
+          endIcon={<img src="/assets/icons/down.svg" alt="down" className={!Boolean(unitTypeAnchorEl) ? "" : "rotate-180"} />}
           sx={buttonStyles}
         >
-          {selectedUnitType}
+          {unitType}
         </Button>
-
         <Menu
           anchorEl={unitTypeAnchorEl}
-          open={unitTypeOpen}
+          open={Boolean(unitTypeAnchorEl)}
           onClose={() => handleUnitTypeClose()}
           anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
           transformOrigin={{ vertical: "top", horizontal: "right" }}
           sx={menuStyles}
         >
-          {/* Tabs for Residential and Commercial */}
-          <Tabs value={tabValue} onChange={handleTabChange} centered>
+          <Tabs value={tabValue} onChange={(_, newValue) => setTabValue(newValue)} centered>
             <Tab label="Residential" />
             <Tab label="Commercial" />
           </Tabs>
-
           <div className="grid grid-cols-3 gap-[2px] p-[4px_20px]">
             {(tabValue === 0 ? RESIDENTIAL : COMMERCIAL).map((unit) => (
               <MenuItem
                 key={unit}
                 onClick={() => handleUnitTypeClose(unit)}
-                sx={{
-                  "&:hover": { backgroundColor: "transparent" },
-                  padding: "4px",
-                }}
+                sx={{ "&:hover": { backgroundColor: "transparent" }, padding: "4px" }}
               >
                 <Chip
                   label={unit}
-                  variant={unit === selectedUnitType ? "filled" : "outlined"}
+                  variant={unit === unitType ? "filled" : "outlined"}
                   color="primary"
                   style={{ color: "#202020" }}
-                  sx={getChipStyles(unit === selectedUnitType)}
+                  sx={getChipStyles(unit === unitType)}
                 />
               </MenuItem>
             ))}
