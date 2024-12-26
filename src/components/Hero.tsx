@@ -17,7 +17,7 @@ export default function Hero() {
         height={0}
         sizes="100vw"
         priority
-        className="relative z-0"
+        className=" z-0"
         style={{ width: "100%", maxWidth: "1440px", height: "auto" }}
         draggable={false}
       />
