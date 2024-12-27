@@ -10,6 +10,7 @@ export interface FilterState {
 export interface AdvancedFilterState {
   cities: CitiesType[];
   category: string;
+  unitType: string;
 }
 export interface FilterDropdownProps {
   value: string;
@@ -51,4 +52,5 @@ export interface CategoryCardProps {
   value: string;
   isSelected: boolean;
   onClick: () => void;
+  image: string;
 }

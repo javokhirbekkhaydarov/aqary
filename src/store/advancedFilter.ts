@@ -5,6 +5,7 @@ import { CITIES } from "@/constants/filterOptions";
 const initialState: AdvancedFilterState = {
   cities: [],
   category: "",
+  unitType: "",
 };
 
 const initialCities = [
@@ -46,8 +47,12 @@ export const advancedFilter = createSlice({
     selectCategory: (state, action: PayloadAction<string>) => {
       state.category = action.payload;
     },
+    selectUnitType: (state, action: PayloadAction<string>) => {
+      state.unitType = action.payload;
+    },
   },
 });
 
-export const { toggleCity, clearCity, selectCategory } = advancedFilter.actions;
+export const { toggleCity, clearCity, selectCategory, selectUnitType } =
+  advancedFilter.actions;
 export default advancedFilter.reducer;

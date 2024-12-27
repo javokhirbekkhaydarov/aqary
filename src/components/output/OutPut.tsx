@@ -11,6 +11,9 @@ export default function Output() {
   const selectedCategory = useSelector(
     (state: RootState) => state.advancedFilter.category
   );
+  const selectedUnitType = useSelector(
+    (state: RootState) => state.advancedFilter.unitType
+  );
   return (
     <div className="pt-4 flex max-w-[1440px] items-start justify-start rounded border-2 border-stone-700 p-40 py-80 w-full">
       <div>
@@ -26,6 +29,7 @@ export default function Output() {
           Selected Cities {selectedCities.map((city) => city.name).join(", ")}
         </p>
         <p>Selected category: {selectedCategory}</p>
+        <p>Selected Unit type: {selectedUnitType}</p>
       </div>
     </div>
   );

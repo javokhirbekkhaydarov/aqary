@@ -8,12 +8,11 @@ import { RESIDENTIAL, COMMERCIAL } from "@/constants/filterOptions";
 
 export function UnitTypeFilter() {
   const [tabValue, setTabValue] = useState(0);
-  const categories = ["Sale", "Rent"];
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedUnitType, setSelectedUnitType] = useState<string | null>(null);
   const dispatch = useDispatch();
-  const chooseCategory = (category: string) => {
-    setSelectedCategory(category);
-    dispatch(selectCategory(category));
+  const chooseUnitType = (unit: string) => {
+    setSelectedUnitType(unit);
+    dispatch(selectCategory(unit));
   };
 
   return (
@@ -27,12 +26,13 @@ export function UnitTypeFilter() {
         <Tab label="Commercial" />
       </Tabs>
       <div className="flex gap-3">
-        {(tabValue === 0 ? RESIDENTIAL : COMMERCIAL).map((category) => (
+        {(tabValue === 0 ? RESIDENTIAL : COMMERCIAL).map((unit) => (
           <CategoryCard
-            key={category.id}
-            value={category.name}
-            isSelected={selectedCategory === category.name}
-            onClick={() => chooseCategory(category.name)}
+            key={unit.id}
+            value={unit.name}
+            image={unit.image}
+            isSelected={selectedUnitType === unit.name}
+            onClick={() => chooseUnitType(unit.name)}
           />
         ))}
       </div>
