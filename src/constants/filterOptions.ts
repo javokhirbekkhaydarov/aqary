@@ -1,3 +1,5 @@
+import { CitiesType } from "@/types/types";
+
 export const CATEGORIES = ["Sale", "Rent", "Swap", "Investment"] as const;
 export const SECTIONS = [
   "Projects",
@@ -28,3 +30,33 @@ export const POPULAR_SEARCHES = [
   "Villa",
   "Country Side",
 ] as const;
+export const CITIES = [
+  {
+    id: 1,
+    name: "Ras Al Khaimah(2k+)",
+  },
+  {
+    id: 2,
+    name: "Abu Dhabi(937)",
+  },
+  {
+    id: 3,
+    name: "Dubai(2k+)",
+  },
+  {
+    id: 4,
+    name: "Sharjah(596)",
+  },
+  {
+    id: 5,
+    name: "Ajman(800)",
+  },
+  {
+    id: 6,
+    name: "Fujairah(1M+)",
+  },
+  {
+    id: 7,
+    name: "Umm Al-Quwain(2M+)",
+  },
+] as CitiesType[];

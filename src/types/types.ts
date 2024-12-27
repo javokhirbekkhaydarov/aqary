@@ -7,7 +7,9 @@ export interface FilterState {
   searchQuery: string;
   priceRange: [number | null, number | null];
 }
-
+export interface AdvancedFilterState {
+  cities: CitiesType[];
+}
 export interface FilterDropdownProps {
   value: string;
   options: readonly string[];
@@ -26,4 +28,11 @@ export interface SearchInputProps {
 export interface UnitTypeDropdownProps {
   value: string;
   onSelect: (value: string) => void;
+}
+
+//  STATIC DATA TYPES
+
+export interface CitiesType {
+  id: number;
+  name: string;
 }

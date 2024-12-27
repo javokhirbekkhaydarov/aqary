@@ -39,9 +39,17 @@ export default function AdvancedFilter() {
       <span className="custom_border"></span>
       <Dialog fullWidth={true} maxWidth="lg" open={open} onClose={handleClose}>
         <DialogActions>
-          <Button onClick={handleClose}>Close</Button>
+          <Image
+            className="cursor-pointer"
+            src="/assets/icons/close.svg"
+            alt="filter"
+            width={20}
+            height={20}
+            priority
+            onClick={handleClose}
+          />
         </DialogActions>
-        <DialogContent>
+        <DialogContent style={{ paddingTop: 0 }}>
           <FilterModal />
         </DialogContent>
       </Dialog>

@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import filterReducer from "./filterSlice";
+import { advancedFilter } from "./advancedFilter";
 
 export const store = configureStore({
   reducer: {
     filter: filterReducer,
+    advancedFilter: advancedFilter.reducer,
   },
 });
 

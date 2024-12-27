@@ -5,7 +5,9 @@ import { formatPrice } from "@/utils/utils";
 
 export default function Output() {
   const filterState = useSelector((state: RootState) => state.filter);
-
+  const selectedCities = useSelector(
+    (state: RootState) => state.advancedFilter.cities
+  );
   return (
     <div className="pt-4 flex max-w-[1440px] items-start justify-start rounded border-2 border-stone-700 p-40 py-80 w-full">
       <div>
@@ -16,6 +18,9 @@ export default function Output() {
         <p>
           Price: {formatPrice(filterState.priceRange[0])} -{" "}
           {formatPrice(filterState.priceRange[1])} AED
+        </p>
+        <p>
+          Selected Cities {selectedCities.map((city) => city.name).join(", ")}
         </p>
       </div>
     </div>
