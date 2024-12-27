@@ -2,12 +2,16 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCategory } from "@/store/advancedFilter";
 
 export default function Categories() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
+  const dispatch = useDispatch();
   const chooseCategory = (category: string) => {
     setSelectedCategory(category);
+    dispatch(selectCategory(category));
   };
 
   return (

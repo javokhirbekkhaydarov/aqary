@@ -8,6 +8,9 @@ export default function Output() {
   const selectedCities = useSelector(
     (state: RootState) => state.advancedFilter.cities
   );
+  const selectedCategory = useSelector(
+    (state: RootState) => state.advancedFilter.category
+  );
   return (
     <div className="pt-4 flex max-w-[1440px] items-start justify-start rounded border-2 border-stone-700 p-40 py-80 w-full">
       <div>
@@ -22,6 +25,7 @@ export default function Output() {
         <p>
           Selected Cities {selectedCities.map((city) => city.name).join(", ")}
         </p>
+        <p>Selected category: {selectedCategory}</p>
       </div>
     </div>
   );

@@ -9,6 +9,7 @@ export interface FilterState {
 }
 export interface AdvancedFilterState {
   cities: CitiesType[];
+  category: string;
 }
 export interface FilterDropdownProps {
   value: string;
