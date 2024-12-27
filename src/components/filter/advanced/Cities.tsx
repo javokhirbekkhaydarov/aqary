@@ -19,7 +19,7 @@ export default function Cities() {
   };
 
   return (
-    <div className="flex flex-col items-start gap-2 ">
+    <div className="flex px-3 flex-col items-start gap-2 ">
       {/* selected cities */}
       <div className="flex flex-col  items-start justify-start">
         <div className="flex  gap-2 items-center">

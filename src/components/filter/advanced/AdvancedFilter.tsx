@@ -1,11 +1,9 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
 import FilterModal from "./FilterModal";
 
 export default function AdvancedFilter() {
@@ -40,7 +38,7 @@ export default function AdvancedFilter() {
       <Dialog fullWidth={true} maxWidth="lg" open={open} onClose={handleClose}>
         <DialogActions>
           <Image
-            className="cursor-pointer"
+            className="cursor-pointer absolute  mt-4 z-10"
             src="/assets/icons/close.svg"
             alt="filter"
             width={20}
@@ -49,7 +47,7 @@ export default function AdvancedFilter() {
             onClick={handleClose}
           />
         </DialogActions>
-        <DialogContent style={{ paddingTop: 0 }}>
+        <DialogContent style={{ padding: 0 }}>
           <FilterModal />
         </DialogContent>
       </Dialog>
