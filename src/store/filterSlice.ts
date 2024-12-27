@@ -6,6 +6,7 @@ const initialState: FilterState = {
   category: "Sale",
   unitType: "Unit Type",
   searchQuery: "",
+  priceRange: [null, null],
 };
 
 export const filterSlice = createSlice({
@@ -24,9 +25,17 @@ export const filterSlice = createSlice({
     setSearchQuery: (state, action: PayloadAction<string>) => {
       state.searchQuery = action.payload;
     },
+    setPriceRange: (state, action: PayloadAction<Array<number | null>>) => {
+      state.priceRange = [action.payload[0], action.payload[1]];
+    },
   },
 });
 
-export const { setSection, setCategory, setUnitType, setSearchQuery } =
-  filterSlice.actions;
+export const {
+  setSection,
+  setCategory,
+  setUnitType,
+  setSearchQuery,
+  setPriceRange,
+} = filterSlice.actions;
 export default filterSlice.reducer;

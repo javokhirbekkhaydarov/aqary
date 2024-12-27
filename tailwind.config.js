@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         primary: "#6290CB",
         borderColor: "#202020",
+        primaryGray: "#919B9B",
       },
       fontFamily: {
         geologica: ["Geologica", "sans-serif"],
