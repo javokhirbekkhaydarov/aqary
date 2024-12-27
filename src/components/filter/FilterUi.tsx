@@ -7,12 +7,12 @@ import {
   setCategory,
   setUnitType,
   setSearchQuery,
-  setPriceRange,
 } from "@/store/filterSlice";
 import { SearchInput } from "@/components/filter/SearchInput";
 import { UnitTypeDropdown } from "@/components/filter/UnitTypeDropdown";
 import { RootState } from "@/store/store";
 import { PriceRange } from "./PriceRange";
+import Image from "next/image";
 export default function FilterUI() {
   const dispatch = useDispatch();
   const { section, category, unitType, searchQuery, priceRange } = useSelector(
@@ -42,6 +42,16 @@ export default function FilterUI() {
         onSelect={(value) => dispatch(setUnitType(value))}
       />
       <PriceRange label="Price Range (AED)" />
+      <div className="bg-secondaryGray h-[52px] w-[64px] rounded-lg cursor-pointer flex items-center justify-center">
+        <Image
+          src="/assets/icons/searchBtn.svg"
+          alt="search btn"
+          width={24}
+          height={24}
+          priority
+          draggable={false}
+        />
+      </div>
     </div>
   );
 }
