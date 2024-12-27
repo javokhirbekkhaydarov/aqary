@@ -37,3 +37,10 @@ export interface CitiesType {
   id: number;
   name: string;
 }
+
+//  category card
+export interface CategoryCardProps {
+  value: string;
+  isSelected: boolean;
+  onClick: () => void;
+}
