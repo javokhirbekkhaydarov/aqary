@@ -12,45 +12,45 @@ export const SECTIONS = [
 export const RESIDENTIAL = [
   {
     name: "Apartment",
-    image: "/assets/icons/apartment.svg",
-    active_image: "/assets/icons/apartment_active.svg",
+    image: "apartment",
+    active_image: "apartment_active",
     id: 1,
   },
   {
     name: "Penthouse",
-    image: "/assets/icons/penthouse.svg",
-    active_image: "/assets/icons/penthouse_active.svg",
+    image: "penthouse",
+    active_image: "penthouse_active",
     id: 2,
   },
   {
     name: "Residential Floor",
-    image: "/assets/icons/residentialfloor.svg",
-    active_image: "/assets/icons/residential_floor_active.svg",
+    image: "residentialfloor",
+    active_image: "residential_floor_active",
     id: 3,
   },
   {
     name: "Hotel Apartment",
-    image: "/assets/icons/hotelapartment.svg",
-    active_image: "/assets/icons/hotel_apartment_active.svg",
+    image: "hotelapartment",
+    active_image: "hotel_apartment_active",
     id: 4,
   },
   {
     name: "Villa",
-    image: "/assets/icons/villa.svg",
-    active_image: "/assets/icons/villa_active.svg",
+    image: "villa",
+    active_image: "villa_active",
     id: 7,
   },
   {
     name: "Townhouse",
-    image: "/assets/icons/townhouse.svg",
-    active_image: "/assets/icons/townhouse_active.svg",
+    image: "townhouse",
+    active_image: "townhouse_active",
     id: 5,
   },
 
   {
     name: "Residential Land",
-    image: "/assets/icons/residential_land.svg",
-    active_image: "/assets/icons/residential_land_active.svg",
+    image: "residential_land",
+    active_image: "residential_land_active",
     id: 6,
   },
 ] as UnitTypeFilterProps[];
@@ -58,41 +58,42 @@ export const RESIDENTIAL = [
 export const COMMERCIAL = [
   {
     name: "Commercial Villa",
-    image: "/assets/icons/commercial_villa.svg",
-    active_image: "/assets/icons/commercial_villa_active.svg",
+    image: "commercial_villa",
+    active_image: "commercial_villa_active",
     id: 1,
   },
   {
     name: "Commercial Floor",
-    image: "/assets/icons/commercial_floor.svg",
-    active_image: "/assets/icons/commercial_floor_active.svg",
+    image: "commercial_floor",
+    active_image: "commercial_floor_active",
     id: 2,
   },
   {
     name: "Offices",
-    image: "/assets/icons/offices.svg",
-    active_image: "/assets/icons/offices_active.svg",
+    image: "offices",
+    active_image: "offices_active",
     id: 3,
   },
   {
     name: "Retail",
-    image: "/assets/icons/retail.svg",
-    active_image: "/assets/icons/retail_active.svg",
+    image: "retail",
+    active_image: "retail_active",
     id: 4,
   },
   {
     name: "Office",
-    image: "/assets/icons/office.svg",
-    active_image: "/assets/icons/office_active.svg",
+    image: "office",
+    active_image: "office_active",
     id: 5,
   },
   {
     name: "Shop",
-    image: "/assets/icons/shop.svg",
-    active_image: "/assets/icons/shop_active.svg",
+    image: "shop",
+    active_image: "shop_active",
     id: 6,
   },
 ] as UnitTypeFilterProps[];
+
 
 export const POPULAR_SEARCHES = [
   "Resident House",

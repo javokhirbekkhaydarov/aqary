@@ -25,6 +25,7 @@ export default function Categories() {
             <CategoryCard
               key={category}
               value={category}
+              image={category}
               isSelected={selectedCategory === category}
               onClick={() => chooseCategory(category)}
             />

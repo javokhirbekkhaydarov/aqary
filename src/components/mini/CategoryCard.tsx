@@ -1,4 +1,3 @@
-"use client";
 
 import React from "react";
 import Image from "next/image";
@@ -7,6 +6,7 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
   value,
   isSelected,
   onClick,
+    image
 }) => {
   return (
     <div
@@ -20,8 +20,8 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
       <Image
         src={
           isSelected
-            ? `/assets/icons/${value.toLowerCase()}_active.svg`
-            : `/assets/icons/${value.toLowerCase()}.svg`
+            ? `/assets/icons/${image.toLowerCase()}_active.svg`
+            : `/assets/icons/${image.toLowerCase()}.svg`
         }
         alt={value}
         width={50}
@@ -29,7 +29,8 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
         priority
         draggable={false}
       />
-      <div className={`text-[20px] ${isSelected ? "text-buttonText" : ""}`}>
+
+      <div className={`text-[20px] text-center leading-normal ${isSelected ? "text-buttonText" : ""}`}>
         {value}
       </div>
     </div>
