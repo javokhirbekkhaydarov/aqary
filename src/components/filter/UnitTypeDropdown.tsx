@@ -12,7 +12,6 @@ import { UnitTypeDropdownProps } from "@/types/types";
 export function UnitTypeDropdown({ value, onSelect }: UnitTypeDropdownProps) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [tabValue, setTabValue] = useState(0);
-
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) =>
     setAnchorEl(event.currentTarget);
   const handleClose = (newValue?: string) => {

@@ -17,7 +17,7 @@ import PopularSearches from "./PopularSearches";
 import AdvancedFilter from "./advanced/AdvancedFilter";
 export default function FilterUI() {
   const dispatch = useDispatch();
-  const { section, category, unitType, searchQuery, priceRange } = useSelector(
+  const { section, category, unitType, searchQuery } = useSelector(
     (state: RootState) => state.filter
   );
 

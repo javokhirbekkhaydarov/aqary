@@ -11,33 +11,24 @@ import { RootState } from "@/store/store";
 import { formatPrice } from "@/utils/utils";
 export function PriceRange({ label }: PriceProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-
   const dispatch = useDispatch();
-
   const priceRange = useSelector((state: RootState) => state.filter.priceRange);
-
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
-
   const handleClose = () => {
     setAnchorEl(null);
   };
-
   const handleMinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const rawValue = e.target.value.replace(/[^\d]/g, '');
-
+    const rawValue = e.target.value.replace(/[^\d]/g, "");
     const newMin = rawValue ? parseInt(rawValue, 10) : null;
-
     dispatch(setPriceRange([newMin, priceRange[1]]));
   };
-
   const handleMaxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const rawValue = e.target.value.replace(/[^\d]/g, '');
+    const rawValue = e.target.value.replace(/[^\d]/g, "");
     const newMax = rawValue ? parseInt(rawValue, 10) : null;
     dispatch(setPriceRange([priceRange[0], newMax]));
   };
-
   return (
     <Box>
       <Button onClick={handleClick} sx={buttonStyles}>
@@ -65,7 +56,7 @@ export function PriceRange({ label }: PriceProps) {
           <Box gap={1} p={2} display={"flex"} alignItems={"center"}>
             <Input
               type="text"
-              inputMode={'numeric'}
+              inputMode={"numeric"}
               value={priceRange[0] !== null ? formatPrice(priceRange[0]) : ""}
               onChange={handleMinChange}
               placeholder="Min"
@@ -74,7 +65,7 @@ export function PriceRange({ label }: PriceProps) {
             <div className="ml-2 mr-2 text-bg-primaryGray">|</div>
             <Input
               type="text"
-              inputMode={'numeric'}
+              inputMode={"numeric"}
               value={priceRange[1] !== null ? formatPrice(priceRange[1]) : ""}
               onChange={handleMaxChange}
               placeholder="Max"
