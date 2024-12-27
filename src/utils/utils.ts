@@ -1,5 +1,5 @@
-export function formatPrice(value: string | number | null): string {
-  if (value === null || value === "") return "";
-  const numericValue = typeof value === "number" ? value : parseInt(value, 10);
-  return numericValue.toLocaleString("en-US");
+export function formatPrice(value: string | number | null | undefined): string {
+    if (!value) return '';
+    const cleanValue = value.toString().replace(/\D/g, '');
+    return cleanValue.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
