@@ -29,6 +29,12 @@ export const inputStyles = {
   justifyContent: "space-between",
   transition: "opacity 0.3s ease",
   "&:hover": { opacity: 1 },
+  //   !TODO: Add focus styles
+  "&:focus": {
+    backgroundColor: "#202020",
+    borderColor: "#004085",
+    outline: "none",
+  },
 };
 
 export const menuStyles = {

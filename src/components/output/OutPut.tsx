@@ -1,6 +1,7 @@
 "use client";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
+import { formatPrice } from "@/utils/utils";
 
 export default function Output() {
   const filterState = useSelector((state: RootState) => state.filter);
@@ -13,7 +14,8 @@ export default function Output() {
         <p>Selected Unit Type: {filterState.unitType}</p>
         <p>Search Query: {filterState.searchQuery}</p>
         <p>
-          Price: {filterState.priceRange[0]} - {filterState.priceRange[1]}
+          Price: {formatPrice(filterState.priceRange[0])} -{" "}
+          {formatPrice(filterState.priceRange[1])} AED
         </p>
       </div>
     </div>

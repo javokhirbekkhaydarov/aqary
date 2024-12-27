@@ -8,6 +8,7 @@ import { PriceProps } from "@/types/types";
 import { useDispatch, useSelector } from "react-redux";
 import { setPriceRange } from "@/store/filterSlice";
 import { RootState } from "@/store/store";
+import { formatPrice } from "@/utils/utils";
 export function PriceRange({ label }: PriceProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -24,12 +25,14 @@ export function PriceRange({ label }: PriceProps) {
   };
 
   const handleMinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newMin = Number(e.target.value);
+    const rawValue = e.target.value.replace(/,/g, "");
+    const newMin = rawValue ? parseInt(rawValue, 10) : null;
     dispatch(setPriceRange([newMin, priceRange[1]]));
   };
 
   const handleMaxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newMax = Number(e.target.value);
+    const rawValue = e.target.value.replace(/,/g, "");
+    const newMax = rawValue ? parseInt(rawValue, 10) : null;
     dispatch(setPriceRange([priceRange[0], newMax]));
   };
 
@@ -59,16 +62,16 @@ export function PriceRange({ label }: PriceProps) {
         <div className="grid grid-cols-1 gap-[2px] p-[4px_20px]">
           <Box gap={1} p={2} display={"flex"} alignItems={"center"}>
             <Input
-              type="number"
-              value={priceRange[0] || ""}
+              type="text"
+              value={priceRange[0] !== null ? formatPrice(priceRange[0]) : ""}
               onChange={handleMinChange}
               placeholder="Min"
               sx={inputStyles}
             />
             <div className="ml-2 mr-2 text-bg-primaryGray">|</div>
             <Input
-              type="number"
-              value={priceRange[1] || ""}
+              type="text"
+              value={priceRange[1] !== null ? formatPrice(priceRange[1]) : ""}
               onChange={handleMaxChange}
               placeholder="Max"
               sx={inputStyles}

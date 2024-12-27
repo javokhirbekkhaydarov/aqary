@@ -15,8 +15,6 @@ export interface FilterDropdownProps {
   label: string;
 }
 export interface PriceProps {
-  value?: [number | null, number | null];
-  onSelect?: (value: (number | string)[]) => void;
   label: string;
 }
 
