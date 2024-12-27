@@ -14,7 +14,7 @@ import { RootState } from "@/store/store";
 import { PriceRange } from "./PriceRange";
 import Image from "next/image";
 import PopularSearches from "./PopularSearches";
-import AdvancedFilter from "./AdvancedFilter";
+import AdvancedFilter from "./advanced/AdvancedFilter";
 export default function FilterUI() {
   const dispatch = useDispatch();
   const { section, category, unitType, searchQuery, priceRange } = useSelector(
