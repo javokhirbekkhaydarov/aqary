@@ -61,6 +61,19 @@ export const tabStyles = {
     backgroundColor: "#202020",
   },
 };
+export const tabCategoryStyles = {
+  color: "#6290CB",
+  "& .MuiTab-root": {
+    color: "#888888",
+    fontFamily: "Geologica",
+  },
+  "& .Mui-selected": {
+    color: "#6290CB !important",
+  },
+  "& .MuiTabs-indicator": {
+    backgroundColor: "#6290CB",
+  },
+};
 
 export const getChipStyles = (selected: boolean) => ({
   cursor: "pointer",

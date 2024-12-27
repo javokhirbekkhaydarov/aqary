@@ -56,19 +56,19 @@ export function UnitTypeDropdown({ value, onSelect }: UnitTypeDropdownProps) {
         <div className="grid grid-cols-3 gap-[2px] p-[4px_20px]">
           {(tabValue === 0 ? RESIDENTIAL : COMMERCIAL).map((unit) => (
             <MenuItem
-              key={unit}
-              onClick={() => handleClose(unit)}
+              key={unit.id}
+              onClick={() => handleClose(unit.name)}
               sx={{
                 "&:hover": { backgroundColor: "transparent" },
                 padding: "4px",
               }}
             >
               <Chip
-                label={unit}
-                variant={unit === value ? "filled" : "outlined"}
+                label={unit.name}
+                variant={unit.name === value ? "filled" : "outlined"}
                 color="primary"
                 style={{ color: "#202020" }}
-                sx={getChipStyles(unit === value)}
+                sx={getChipStyles(unit.name === value)}
               />
             </MenuItem>
           ))}

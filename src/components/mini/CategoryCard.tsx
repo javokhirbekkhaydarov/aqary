@@ -24,8 +24,8 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
             : `/assets/icons/${value.toLowerCase()}.svg`
         }
         alt={value}
-        width={63}
-        height={63}
+        width={50}
+        height={50}
         priority
         draggable={false}
       />

@@ -31,6 +31,14 @@ export interface UnitTypeDropdownProps {
   onSelect: (value: string) => void;
 }
 
+export interface UnitTypeFilterProps {
+  name: string;
+  image: string;
+  active_image: string;
+  id: number;
+  onClick: () => void;
+}
+
 //  STATIC DATA TYPES
 
 export interface CitiesType {
