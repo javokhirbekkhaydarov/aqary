@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { Box } from "@mui/system";
 import { Button, Menu, MenuItem, Chip, Tabs, Tab } from "@mui/material";
-import { buttonStyles, menuStyles, getChipStyles } from "@/styles/filterStyles";
+import {
+  buttonStyles,
+  menuStyles,
+  getChipStyles,
+  tabStyles,
+} from "@/styles/filterStyles";
 import { RESIDENTIAL, COMMERCIAL } from "@/constants/filterOptions";
 import { UnitTypeDropdownProps } from "@/types/types";
 export function UnitTypeDropdown({ value, onSelect }: UnitTypeDropdownProps) {
@@ -43,19 +48,7 @@ export function UnitTypeDropdown({ value, onSelect }: UnitTypeDropdownProps) {
           value={tabValue}
           onChange={(_, newValue) => setTabValue(newValue)}
           centered
-          sx={{
-            color: "#202020",
-            "& .MuiTab-root": {
-              color: "#888888",
-              fontFamily: "Geologica",
-            },
-            "& .Mui-selected": {
-              color: "#202020",
-            },
-            "& .MuiTabs-indicator": {
-              backgroundColor: "#202020",
-            },
-          }}
+          sx={tabStyles}
         >
           <Tab label="Residential" />
           <Tab label="Commercial" />

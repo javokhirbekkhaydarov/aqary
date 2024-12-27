@@ -73,3 +73,20 @@ a {
 ::-webkit-scrollbar {
   width: 0;
 }
+.advanced_filter {
+  position: relative;
+}
+
+.advanced_filter .custom_border {
+  position: absolute;
+  top: -16px;
+  left: -28px;
+  box-shadow: inset 24px 4px white;
+  aspect-ratio: 1;
+  transform: rotate(132deg);
+  background: none;
+  border-radius: 24px;
+  height: 48px;
+  width: 48px;
+  z-index: 0;
+}

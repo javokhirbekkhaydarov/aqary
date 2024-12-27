@@ -1,3 +1,5 @@
+import { BorderColor } from "@mui/icons-material";
+
 export const buttonStyles = {
   textTransform: "none",
   fontWeight: 500,
@@ -46,6 +48,19 @@ export const menuStyles = {
   overflow: "hidden",
   padding: "25px",
 };
+export const tabStyles = {
+  color: "#202020",
+  "& .MuiTab-root": {
+    color: "#888888",
+    fontFamily: "Geologica",
+  },
+  "& .Mui-selected": {
+    color: "#202020 !important",
+  },
+  "& .MuiTabs-indicator": {
+    backgroundColor: "#202020",
+  },
+};
 
 export const getChipStyles = (selected: boolean) => ({
   cursor: "pointer",
@@ -67,5 +82,24 @@ export const getChipStyles = (selected: boolean) => ({
     backgroundColor: "#E3E3E3",
     paddingTop: "16px !important",
     paddingBottom: "16px !important",
+  },
+});
+export const getChipSearchStyles = (selected: boolean) => ({
+  cursor: "pointer",
+  width: "100%",
+  transition: "all 0.1s linear",
+  transitionDelay: "0",
+  justifyContent: "center",
+  fontWeight: 400,
+  fontSize: "14px",
+  fontFamily: "Geologica, sans-serif",
+  backgroundColor: "rgba(255, 255, 255, 1)",
+  colorAdjust: "#202020",
+  ...(selected && {
+    borderColor: "#202020",
+    color: "rgba(32, 32, 32, 1)",
+  }),
+  "&:hover": {
+    backgroundColor: "#E3E3E3",
   },
 });
