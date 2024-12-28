@@ -73,6 +73,10 @@ export default function Output() {
           Furnishing{" "}
           {advancedFilterState?.furnishing?.map((bath) => bath).join(", ")}
         </p>
+        <p>
+          Hand overby{" "}
+          {advancedFilterState?.handoverBy?.map((hand) => hand.name).join(", ")}
+        </p>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import {
   SelectValuePayload,
 } from "@/types/types";
 
-import { CITIES } from "@/constants/filterOptions";
+import { CITIES, HANDOVER_BY } from "@/constants/filterOptions";
 
 const initialState: AdvancedFilterState = {
   cities: [],
@@ -18,6 +18,7 @@ const initialState: AdvancedFilterState = {
   listedBy: "",
   ownership: [],
   furnishing: [],
+  handoverBy: [],
 };
 
 const initialCities = [
@@ -49,6 +50,16 @@ export const advancedFilter = createSlice({
         if (cityIndexInCITIES >= 0) {
           CITIES.splice(cityIndexInCITIES, 1);
         }
+      }
+    },
+    toggleHandover: (state, action: PayloadAction<CitiesType>) => {
+      const index = state.handoverBy.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (index >= 0) {
+        state.handoverBy.splice(index, 1);
+      } else {
+        state.handoverBy.push(action.payload);
       }
     },
     clearCity: (state) => {
@@ -108,5 +119,6 @@ export const {
   selectUnitType,
   selectValue,
   selectListedBy,
+  toggleHandover,
 } = advancedFilter.actions;
 export default advancedFilter.reducer;

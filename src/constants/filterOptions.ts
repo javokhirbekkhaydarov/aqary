@@ -176,3 +176,46 @@ export const FURNISHING = [
   "Unfurnished",
   "Semi Furnished",
 ] as string[];
+
+export const HANDOVER_BY = [
+  {
+    id: 1,
+    name: "Any",
+  },
+  {
+    id: 2,
+    name: "Sep 2024",
+  },
+  {
+    id: 3,
+    name: "Aug 2024",
+  },
+  {
+    id: 4,
+    name: "Jul 2024",
+  },
+  {
+    id: 5,
+    name: "Jun 2024",
+  },
+  {
+    id: 6,
+    name: "May 2024",
+  },
+  {
+    id: 7,
+    name: "Apr 2024",
+  },
+  {
+    id: 8,
+    name: "Mar 2024",
+  },
+  {
+    id: 9,
+    name: "Feb 2024",
+  },
+  {
+    id: 10,
+    name: "Jan 2024",
+  },
+] as CitiesType[];

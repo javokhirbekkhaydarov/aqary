@@ -19,6 +19,7 @@ export interface AdvancedFilterState {
   listedBy: string;
   ownership: string[];
   furnishing: string[];
+  handoverBy: CitiesType[];
 }
 export interface FilterDropdownProps {
   value: string;
