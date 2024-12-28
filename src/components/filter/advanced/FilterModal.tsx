@@ -6,6 +6,7 @@ import Cities from "./Cities";
 import { UnitTypeFilter } from "./UnitTypeFilter";
 import { Bedrooms } from "./Bedrooms";
 import { Bathrooms } from "./Baths";
+import { Parking } from "./Parking";
 
 export default function FilterModal() {
   return (
@@ -20,6 +21,9 @@ export default function FilterModal() {
       <Bedrooms />
       <Line />
       <Bathrooms />
+      <Line />
+      <Parking />
+      <Line />
     </div>
   );
 }

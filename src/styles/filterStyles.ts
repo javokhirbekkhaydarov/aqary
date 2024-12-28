@@ -1,4 +1,4 @@
-import { BorderColor } from "@mui/icons-material";
+import { BorderBottom, BorderColor } from "@mui/icons-material";
 
 export const buttonStyles = {
   textTransform: "none",
@@ -63,12 +63,14 @@ export const tabStyles = {
 };
 export const tabCategoryStyles = {
   color: "#6290CB",
+  BorderBottom: "1px solid #6290CB !important",
   "& .MuiTab-root": {
     color: "#888888",
     fontFamily: "Geologica",
   },
   "& .Mui-selected": {
     color: "#6290CB !important",
+    fontWeight: 600,
   },
   "& .MuiTabs-indicator": {
     backgroundColor: "#6290CB",
