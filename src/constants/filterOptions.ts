@@ -58,42 +58,41 @@ export const RESIDENTIAL = [
 export const COMMERCIAL = [
   {
     name: "Commercial Villa",
-    image: "commercial_villa",
-    active_image: "commercial_villa_active",
+    image: "townhouse",
+    active_image: "townhouse_active",
     id: 1,
   },
   {
     name: "Commercial Floor",
-    image: "commercial_floor",
-    active_image: "commercial_floor_active",
+    image: "townhouse",
+    active_image: "townhouse_active",
     id: 2,
   },
   {
     name: "Offices",
-    image: "offices",
-    active_image: "offices_active",
+    image: "villa",
+    active_image: "villa_active",
     id: 3,
   },
   {
     name: "Retail",
-    image: "retail",
-    active_image: "retail_active",
+    image: "hotelapartment",
+    active_image: "hotel_apartment_active",
     id: 4,
   },
   {
     name: "Office",
-    image: "office",
-    active_image: "office_active",
+    image: "penthouse",
+    active_image: "penthouse_active",
     id: 5,
   },
   {
     name: "Shop",
-    image: "shop",
-    active_image: "shop_active",
+    image: "residential_land",
+    active_image: "residential_land_active",
     id: 6,
   },
 ] as UnitTypeFilterProps[];
-
 
 export const POPULAR_SEARCHES = [
   "Resident House",
