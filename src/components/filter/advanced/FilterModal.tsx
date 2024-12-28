@@ -13,6 +13,7 @@ import { CompletionStatus } from "./status/CompletionStatus";
 import ListedBy from "./listedBy/ListedBy";
 import { OwnerShip } from "./ownership/OwnerShip";
 import { UnitArea } from "./unitArea/UnitArea";
+import { Furnishing } from "./furnishing/Furnishing";
 
 export default function FilterModal() {
   return (
@@ -41,6 +42,8 @@ export default function FilterModal() {
       <OwnerShip />
       <Line />
       <UnitArea />
+      <Line />
+      <Furnishing />
       <Line />
     </div>
   );

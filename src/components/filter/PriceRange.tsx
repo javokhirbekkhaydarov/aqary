@@ -53,7 +53,7 @@ export function PriceRange({ label }: PriceProps) {
           {label}
         </div>
         <div className="grid grid-cols-1 gap-[2px] p-[4px_20px]">
-          <Box gap={1} p={2} display={"flex"} alignItems={"center"}>
+          <Box gap={1} display={"flex"} alignItems={"center"}>
             <Input
               type="text"
               inputMode={"numeric"}

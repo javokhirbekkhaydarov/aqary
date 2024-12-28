@@ -18,6 +18,7 @@ export interface AdvancedFilterState {
   completion_status: string[];
   listedBy: string;
   ownership: string[];
+  furnishing: string[];
 }
 export interface FilterDropdownProps {
   value: string;

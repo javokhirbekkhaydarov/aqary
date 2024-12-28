@@ -5,6 +5,9 @@ import { formatPrice } from "@/utils/utils";
 
 export default function Output() {
   const filterState = useSelector((state: RootState) => state.filter);
+  const advancedFilterState = useSelector(
+    (state: RootState) => state.advancedFilter
+  );
   const selectedCities = useSelector(
     (state: RootState) => state.advancedFilter.cities
   );
@@ -60,11 +63,15 @@ export default function Output() {
           Completion status{" "}
           {completionStatus.map((completion) => completion).join(", ")}
         </p>
-        <p>Selected Listed By: {selectedListedBy}</p>
+        <p>Selected Listed By: {advancedFilterState.listedBy}</p>
         <p>Ownership: {selectedOwnership.map((owner) => owner).join(", ")}</p>
         <p>
           Unit Area (Square Feet): {formatPrice(filterState.unitArea[0])} -{" "}
           {formatPrice(filterState.unitArea[1])} KV
+        </p>
+        <p>
+          Furnishing{" "}
+          {advancedFilterState?.furnishing?.map((bath) => bath).join(", ")}
         </p>
       </div>
     </div>

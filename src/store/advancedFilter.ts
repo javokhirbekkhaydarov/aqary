@@ -17,6 +17,7 @@ const initialState: AdvancedFilterState = {
   completion_status: [],
   listedBy: "",
   ownership: [],
+  furnishing: [],
 };
 
 const initialCities = [
@@ -80,6 +81,8 @@ export const advancedFilter = createSlice({
           break;
         case "ownership":
           targetArray = state.ownership;
+        case "furnishing":
+          targetArray = state.furnishing;
           break;
         default:
           return;

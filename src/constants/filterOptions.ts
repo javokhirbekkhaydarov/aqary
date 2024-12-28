@@ -171,3 +171,8 @@ export const OWNERSHIP = [
   "Freehold",
   "Lease Hold",
 ] as string[];
+export const FURNISHING = [
+  "Furnished",
+  "Unfurnished",
+  "Semi Furnished",
+] as string[];

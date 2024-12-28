@@ -42,7 +42,7 @@ export function UnitArea() {
       </div>
       <PriceRangeSlider prices={sanitizedAreaRange} type={"area"} />
       <div className="grid grid-cols-1 gap-[2px] ">
-        <Box gap={1} p={2} display={"flex"} alignItems={"center"}>
+        <Box gap={1} display={"flex"} alignItems={"center"}>
           <Input
             type="text"
             inputMode={"numeric"}

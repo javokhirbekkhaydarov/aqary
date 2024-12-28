@@ -16,6 +16,8 @@ export const Chips: React.FC<ChipsProps> = ({ value, type, onClick }) => {
         return state.advancedFilter.completion_status;
       case "ownership":
         return state.advancedFilter.ownership;
+      case "furnishing":
+        return state.advancedFilter.furnishing;
       default:
         return [];
     }

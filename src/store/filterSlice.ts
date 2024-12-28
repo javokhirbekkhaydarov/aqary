@@ -6,7 +6,7 @@ const initialState: FilterState = {
   category: "Sale",
   unitType: "Unit Type",
   searchQuery: "",
-  priceRange: [null, null],
+  priceRange: [222000, 800000],
   unitArea: [null, null],
 };
 
