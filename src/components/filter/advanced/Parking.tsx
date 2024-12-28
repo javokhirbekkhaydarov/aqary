@@ -15,12 +15,12 @@ export function Parking() {
     <div className="flex px-3 flex-col items-start gap-4">
       <p className="text-[22px] font-medium text-500">Baths</p>
       <div className="bathrooms flex flex-wrap gap-x-4">
-        {PARKS.map((bath) => (
+        {PARKS.map((park) => (
           <Chips
-            value={bath}
+            value={park}
             type="park"
-            key={bath}
-            onClick={() => handleSelect(bath)}
+            key={park}
+            onClick={() => handleSelect(park)}
           />
         ))}
       </div>
