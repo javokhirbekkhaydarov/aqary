@@ -1,4 +1,3 @@
-
 import React from "react";
 import Image from "next/image";
 import { CategoryCardProps } from "@/types/types";
@@ -6,7 +5,7 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
   value,
   isSelected,
   onClick,
-    image
+  image,
 }) => {
   return (
     <div
@@ -30,7 +29,9 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
         draggable={false}
       />
 
-      <div className={`text-[20px] text-center leading-normal ${isSelected ? "text-buttonText" : ""}`}>
+      <div
+        className={`text-[20px] text-center leading-normal ${isSelected ? "text-buttonText" : ""}`}
+      >
         {value}
       </div>
     </div>

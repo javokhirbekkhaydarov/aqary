@@ -129,3 +129,6 @@ export const CITIES = [
     name: "Umm Al-Quwain(2M+)",
   },
 ] as CitiesType[];
+export const BEDROOMS = ["Studio", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, "12+"] as
+  | number[]
+  | string[];

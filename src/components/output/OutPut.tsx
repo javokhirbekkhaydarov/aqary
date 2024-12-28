@@ -14,6 +14,9 @@ export default function Output() {
   const selectedUnitType = useSelector(
     (state: RootState) => state.advancedFilter.unitType
   );
+  const selectedBedrooms = useSelector(
+    (state: RootState) => state.advancedFilter.bedrooms
+  );
   return (
     <div className="pt-4 flex max-w-[1440px] items-start justify-start rounded border-2 border-stone-700 p-40 py-80 w-full">
       <div>
@@ -30,6 +33,10 @@ export default function Output() {
         </p>
         <p>Selected category: {selectedCategory}</p>
         <p>Selected Unit type: {selectedUnitType}</p>
+        <p>
+          Selected Bedrooms{" "}
+          {selectedBedrooms.map((bedroom) => bedroom).join(", ")}
+        </p>
       </div>
     </div>
   );

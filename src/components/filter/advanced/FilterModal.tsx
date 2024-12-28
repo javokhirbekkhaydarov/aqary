@@ -4,6 +4,7 @@ import Line from "@/components/mini/Line";
 import Categories from "./Categories";
 import Cities from "./Cities";
 import { UnitTypeFilter } from "./UnitTypeFilter";
+import { Bedrooms } from "./Bedrooms";
 
 export default function FilterModal() {
   return (
@@ -14,6 +15,8 @@ export default function FilterModal() {
       <Categories />
       <Line />
       <UnitTypeFilter />
+      <Line />
+      <Bedrooms />
     </div>
   );
 }

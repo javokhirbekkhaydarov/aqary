@@ -11,6 +11,7 @@ export interface AdvancedFilterState {
   cities: CitiesType[];
   category: string;
   unitType: string;
+  bedrooms: (string | number)[];
 }
 export interface FilterDropdownProps {
   value: string;
@@ -53,4 +54,10 @@ export interface CategoryCardProps {
   isSelected: boolean;
   onClick: () => void;
   image: string;
+}
+// bedroooms
+
+export interface BedroomChipsProps {
+  bedroom: string | number;
+  onClick: () => void;
 }

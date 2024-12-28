@@ -1,11 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AdvancedFilterState, CitiesType } from "@/types/types";
+import {
+  AdvancedFilterState,
+  BedroomChipsProps,
+  CitiesType,
+} from "@/types/types";
 import { CITIES } from "@/constants/filterOptions";
 
 const initialState: AdvancedFilterState = {
   cities: [],
   category: "",
   unitType: "",
+  bedrooms: [],
 };
 
 const initialCities = [
@@ -50,9 +55,27 @@ export const advancedFilter = createSlice({
     selectUnitType: (state, action: PayloadAction<string>) => {
       state.unitType = action.payload;
     },
+    selectBedroom: (
+      state: AdvancedFilterState,
+      action: PayloadAction<string | number>
+    ) => {
+      const index = state.bedrooms.findIndex(
+        (bedroom) => bedroom === action.payload
+      );
+      if (index >= 0) {
+        state.bedrooms.splice(index, 1);
+      } else {
+        state.bedrooms.push(action.payload);
+      }
+    },
   },
 });
 
-export const { toggleCity, clearCity, selectCategory, selectUnitType } =
-  advancedFilter.actions;
+export const {
+  toggleCity,
+  clearCity,
+  selectCategory,
+  selectUnitType,
+  selectBedroom,
+} = advancedFilter.actions;
 export default advancedFilter.reducer;
