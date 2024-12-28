@@ -77,6 +77,10 @@ export default function Output() {
           Hand overby{" "}
           {advancedFilterState?.handoverBy?.map((hand) => hand.name).join(", ")}
         </p>
+        <p>
+          % Completion{" "}
+          {advancedFilterState?.completion?.map((hand) => hand.name).join(", ")}
+        </p>
       </div>
     </div>
   );

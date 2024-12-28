@@ -15,6 +15,7 @@ import { OwnerShip } from "./ownership/OwnerShip";
 import { UnitArea } from "./unitArea/UnitArea";
 import { Furnishing } from "./furnishing/Furnishing";
 import HandOverBy from "./handoverBy/HandOverBy";
+import Completion from "./completion/Completion";
 
 export default function FilterModal() {
   return (
@@ -47,6 +48,8 @@ export default function FilterModal() {
       <Furnishing />
       <Line />
       <HandOverBy />
+      <Line />
+      <Completion />
     </div>
   );
 }

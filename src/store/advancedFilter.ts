@@ -19,6 +19,7 @@ const initialState: AdvancedFilterState = {
   ownership: [],
   furnishing: [],
   handoverBy: [],
+  completion: [],
 };
 
 const initialCities = [
@@ -60,6 +61,16 @@ export const advancedFilter = createSlice({
         state.handoverBy.splice(index, 1);
       } else {
         state.handoverBy.push(action.payload);
+      }
+    },
+    toggleCompletion: (state, action: PayloadAction<CitiesType>) => {
+      const index = state.completion.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (index >= 0) {
+        state.completion.splice(index, 1);
+      } else {
+        state.completion.push(action.payload);
       }
     },
     clearCity: (state) => {
@@ -120,5 +131,6 @@ export const {
   selectValue,
   selectListedBy,
   toggleHandover,
+  toggleCompletion,
 } = advancedFilter.actions;
 export default advancedFilter.reducer;

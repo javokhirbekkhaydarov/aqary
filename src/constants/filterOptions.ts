@@ -219,3 +219,22 @@ export const HANDOVER_BY = [
     name: "Jan 2024",
   },
 ] as CitiesType[];
+
+export const COMPLETION = [
+  {
+    id: 1,
+    name: "0-25%",
+  },
+  {
+    id: 2,
+    name: "25-50%",
+  },
+  {
+    id: 3,
+    name: "50-75%",
+  },
+  {
+    id: 4,
+    name: "75-100%",
+  },
+] as CitiesType[];
