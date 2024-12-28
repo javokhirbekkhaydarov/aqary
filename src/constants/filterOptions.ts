@@ -1,4 +1,4 @@
-import { CitiesType, UnitTypeFilterProps } from "@/types/types";
+import { Amenity, CitiesType, UnitTypeFilterProps } from "@/types/types";
 
 export const CATEGORIES = ["Sale", "Rent", "Swap", "Investment"] as const;
 export const SECTIONS = [
@@ -238,3 +238,68 @@ export const COMPLETION = [
     name: "75-100%",
   },
 ] as CitiesType[];
+
+export interface AmenityCategory {
+  category: string;
+  amenities: { id: number; name: string }[];
+}
+
+export const AMENITIES: AmenityCategory[] = [
+  {
+    category: "Furniture",
+    amenities: [
+      { id: 1, name: "Furnished" },
+      { id: 2, name: "Central gas" },
+      { id: 3, name: "Parking spaces" },
+      { id: 4, name: "Study room" },
+      { id: 5, name: "Central a/c" },
+      { id: 6, name: "Central heating" },
+      { id: 7, name: "Built-in wardrobe" },
+      { id: 8, name: "Walk-in closet" },
+    ],
+  },
+  {
+    category: "Building",
+    amenities: [
+      { id: 1, name: "Balcony/terrace" },
+      { id: 2, name: "Cigar room" },
+      { id: 3, name: "Dining in building" },
+      { id: 4, name: "Mezzanine" },
+      { id: 5, name: "Lobby in building" },
+      { id: 6, name: "Retail building" },
+      { id: 7, name: "Vastu compliment" },
+      { id: 8, name: "Conference room" },
+    ],
+  },
+  {
+    category: "Health & Fitness",
+    amenities: [
+      { id: 9, name: "Shared sauna" },
+      { id: 10, name: "Private children pool" },
+      { id: 11, name: "Private gym" },
+      { id: 12, name: "Shared gym" },
+      { id: 13, name: "Private jacuzzi" },
+      { id: 14, name: "Shared pool" },
+      { id: 15, name: "Private pool" },
+      { id: 16, name: "Shared children pool" },
+      { id: 17, name: "Private sauna" },
+      { id: 18, name: "First aid medical centre" },
+      { id: 19, name: "Shared jacuzzi" },
+    ],
+  },
+  {
+    category: "Laundry & Kitchen",
+    amenities: [
+      { id: 20, name: "Laundry room" },
+      { id: 21, name: "Built-in kitchen appliances" },
+      { id: 22, name: "Shared children pool" },
+      { id: 23, name: "Maid's room" },
+      { id: 24, name: "Maid service" },
+      { id: 25, name: "Ironing capabilities" },
+      { id: 26, name: "Hangers" },
+      { id: 27, name: "Luggage storage" },
+      { id: 28, name: "Pantry" },
+      { id: 29, name: "Dishwasher" },
+    ],
+  },
+];

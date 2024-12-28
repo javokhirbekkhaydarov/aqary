@@ -8,6 +8,7 @@ export interface FilterState {
   priceRange: [number | null, number | null];
   unitArea: [number | null, number | null];
 }
+export interface AmenitiesState {}
 export interface AdvancedFilterState {
   cities: CitiesType[];
   category: string;
@@ -77,4 +78,12 @@ export interface ChipsProps {
 export interface SelectValuePayload {
   value: string | number;
   type: ChipType;
+}
+
+export interface Amenity {
+  id: number;
+  name: string;
+}
+export interface AmenitiesState {
+  selectedAmenities: string[];
 }

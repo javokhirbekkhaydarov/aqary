@@ -5,7 +5,7 @@ import {
   SelectValuePayload,
 } from "@/types/types";
 
-import { CITIES, HANDOVER_BY } from "@/constants/filterOptions";
+import { CITIES } from "@/constants/filterOptions";
 
 const initialState: AdvancedFilterState = {
   cities: [],
