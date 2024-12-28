@@ -5,6 +5,7 @@ import Categories from "./Categories";
 import Cities from "./Cities";
 import { UnitTypeFilter } from "./UnitTypeFilter";
 import { Bedrooms } from "./Bedrooms";
+import { Bathrooms } from "./Baths";
 
 export default function FilterModal() {
   return (
@@ -17,6 +18,8 @@ export default function FilterModal() {
       <UnitTypeFilter />
       <Line />
       <Bedrooms />
+      <Line />
+      <Bathrooms />
     </div>
   );
 }

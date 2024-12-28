@@ -17,6 +17,9 @@ export default function Output() {
   const selectedBedrooms = useSelector(
     (state: RootState) => state.advancedFilter.bedrooms
   );
+  const selectedBathrooms = useSelector(
+    (state: RootState) => state.advancedFilter.baths
+  );
   return (
     <div className="pt-4 flex max-w-[1440px] items-start justify-start rounded border-2 border-stone-700 p-40 py-80 w-full">
       <div>
@@ -36,6 +39,9 @@ export default function Output() {
         <p>
           Selected Bedrooms{" "}
           {selectedBedrooms.map((bedroom) => bedroom).join(", ")}
+        </p>
+        <p>
+          Selected Bathrooms {selectedBathrooms.map((bath) => bath).join(", ")}
         </p>
       </div>
     </div>

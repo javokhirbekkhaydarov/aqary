@@ -1,15 +1,14 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { selectBedroom } from "@/store/advancedFilter";
+import { selectValue } from "@/store/advancedFilter";
 import { BEDROOMS } from "@/constants/filterOptions";
-import { BedroomChips } from "@/components/mini/BedroomChips";
-import { BedroomChipsProps } from "@/types/types";
+import { Chips } from "@/components/mini/Chips";
 
 export function Bedrooms() {
   const dispatch = useDispatch();
 
-  const chooseBedroom = (bedroom: string | number) => {
-    dispatch(selectBedroom(bedroom));
+  const handleSelect = (value: string | number) => {
+    dispatch(selectValue({ value, type: "bedroom" }));
   };
 
   return (
@@ -17,10 +16,11 @@ export function Bedrooms() {
       <p className="text-[22px] font-medium text-500">Bedrooms</p>
       <div className="bedrooms flex flex-wrap gap-x-4">
         {BEDROOMS.map((bedroom) => (
-          <BedroomChips
-            bedroom={bedroom}
+          <Chips
+            value={bedroom}
+            type="bedroom"
             key={bedroom}
-            onClick={() => chooseBedroom(bedroom)}
+            onClick={() => handleSelect(bedroom)}
           />
         ))}
       </div>

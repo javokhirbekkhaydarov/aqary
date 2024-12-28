@@ -132,3 +132,6 @@ export const CITIES = [
 export const BEDROOMS = ["Studio", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, "12+"] as
   | number[]
   | string[];
+export const BATHROOMS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, "12+"] as
+  | number[]
+  | string[];
