@@ -16,6 +16,7 @@ export interface AdvancedFilterState {
   parks: (string | number)[];
   completion_status: string[];
   listedBy: string;
+  ownership: string[];
 }
 export interface FilterDropdownProps {
   value: string;
@@ -61,7 +62,7 @@ export interface CategoryCardProps {
 }
 // bedroooms
 
-export type ChipType = "bedroom" | "bath" | "park" | "completion_status";
+export type ChipType = string;
 
 export interface ChipsProps {
   value: string | number;

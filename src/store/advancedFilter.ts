@@ -16,6 +16,7 @@ const initialState: AdvancedFilterState = {
   parks: [],
   completion_status: [],
   listedBy: "",
+  ownership: [],
 };
 
 const initialCities = [
@@ -76,6 +77,9 @@ export const advancedFilter = createSlice({
           break;
         case "completion_status":
           targetArray = state.completion_status;
+          break;
+        case "ownership":
+          targetArray = state.ownership;
           break;
         default:
           return;

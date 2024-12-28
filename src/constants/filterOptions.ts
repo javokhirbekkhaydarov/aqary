@@ -166,3 +166,8 @@ export const LISTED_BY = [
     id: 4,
   },
 ] as UnitTypeFilterProps[];
+export const OWNERSHIP = [
+  "Local Citizen",
+  "Freehold",
+  "Lease Hold",
+] as string[];
