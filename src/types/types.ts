@@ -6,6 +6,7 @@ export interface FilterState {
   unitType: string;
   searchQuery: string;
   priceRange: [number | null, number | null];
+  unitArea: [number | null, number | null];
 }
 export interface AdvancedFilterState {
   cities: CitiesType[];

@@ -62,6 +62,10 @@ export default function Output() {
         </p>
         <p>Selected Listed By: {selectedListedBy}</p>
         <p>Ownership: {selectedOwnership.map((owner) => owner).join(", ")}</p>
+        <p>
+          Unit Area (Square Feet): {formatPrice(filterState.unitArea[0])} -{" "}
+          {formatPrice(filterState.unitArea[1])} KV
+        </p>
       </div>
     </div>
   );

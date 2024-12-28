@@ -5,7 +5,7 @@ import Slider from "@mui/material/Slider";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import { useDispatch } from "react-redux";
-import { setPriceRange } from "@/store/filterSlice";
+import { setPriceRange, setAreaRange } from "@/store/filterSlice";
 const iOSBoxShadow =
   "0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)";
 
@@ -62,16 +62,22 @@ const IOSSlider = styled(Slider)(({ theme }) => ({
 
 interface PriceRangeSliderProps {
   prices: number[];
+  type?: string;
 }
 
 export const PriceRangeSlider: React.FC<PriceRangeSliderProps> = ({
   prices,
+  type,
 }) => {
   const dispatch = useDispatch();
 
   const handleSliderChange = (_: Event, newValue: number | number[]) => {
     if (Array.isArray(newValue)) {
-      dispatch(setPriceRange(newValue));
+      if (type === "area") {
+        dispatch(setAreaRange(newValue));
+      } else {
+        dispatch(setPriceRange(newValue));
+      }
     }
   };
   return (
