@@ -15,6 +15,7 @@ const initialState: AdvancedFilterState = {
   bedrooms: [],
   baths: [],
   parks: [],
+  completion_status: [],
 };
 
 const initialCities = [
@@ -72,6 +73,9 @@ export const advancedFilter = createSlice({
           break;
         case "park":
           targetArray = state.parks;
+          break;
+        case "completion_status":
+          targetArray = state.completion_status;
           break;
         default:
           return;

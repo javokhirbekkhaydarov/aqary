@@ -8,6 +8,8 @@ import { Bedrooms } from "./Bedrooms";
 import { Bathrooms } from "./Baths";
 import { Parking } from "./Parking";
 import { Location } from "./location/Location";
+import { PriceRange } from "./price/PriceRange";
+import { CompletionStatus } from "./status/CompletionStatus";
 
 export default function FilterModal() {
   return (
@@ -26,6 +28,10 @@ export default function FilterModal() {
       <Parking />
       <Line />
       <Location />
+      <Line />
+      <PriceRange />
+      <Line />
+      <CompletionStatus />
       <Line />
     </div>
   );

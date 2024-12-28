@@ -14,6 +14,7 @@ export interface AdvancedFilterState {
   bedrooms: (string | number)[];
   baths: (string | number)[];
   parks: (string | number)[];
+  completion_status: string[];
 }
 export interface FilterDropdownProps {
   value: string;
@@ -59,7 +60,7 @@ export interface CategoryCardProps {
 }
 // bedroooms
 
-export type ChipType = "bedroom" | "bath" | "park";
+export type ChipType = "bedroom" | "bath" | "park" | "completion_status";
 
 export interface ChipsProps {
   value: string | number;

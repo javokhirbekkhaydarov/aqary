@@ -47,7 +47,7 @@ export default function AdvancedFilter() {
             onClick={handleClose}
           />
         </DialogActions>
-        <DialogContent style={{ padding: 0 }}>
+        <DialogContent style={{ padding: 0, paddingBottom: 20 }}>
           <FilterModal />
         </DialogContent>
       </Dialog>

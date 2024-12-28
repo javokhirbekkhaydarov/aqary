@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import MySwitch from "@/components/mini/IOSSwitch";
-import { SearchInput } from "../../SearchInput";
 
 export function Location() {
   const [isChecked, setIsChecked] = useState(false);

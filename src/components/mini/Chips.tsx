@@ -12,6 +12,8 @@ export const Chips: React.FC<ChipsProps> = ({ value, type, onClick }) => {
         return state.advancedFilter.baths;
       case "park":
         return state.advancedFilter.parks;
+      case "completion_status":
+        return state.advancedFilter.completion_status;
       default:
         return [];
     }
@@ -25,7 +27,7 @@ export const Chips: React.FC<ChipsProps> = ({ value, type, onClick }) => {
       onClick={onClick}
       className={`transition duration-200 ease-linear border cursor-pointer px-[20px] py-[6px] gap-[12px] rounded-full ${
         isSelected
-          ? "border-secondaryBlue bg-secondaryBlue"
+          ? "border-secondaryBlue bg-secondaryBlue text-buttonText"
           : "border-primaryGray hover:border-secondaryBlue hover:bg-secondaryBlue"
       }`}
     >

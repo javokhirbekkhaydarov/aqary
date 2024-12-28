@@ -23,6 +23,9 @@ export default function Output() {
   const selectedParks = useSelector(
     (state: RootState) => state.advancedFilter.parks
   );
+  const completionStatus = useSelector(
+    (state: RootState) => state.advancedFilter.completion_status
+  );
   return (
     <div className="pt-4 flex max-w-[1440px] items-start justify-start rounded border-2 border-stone-700 p-40 py-80 w-full">
       <div>
@@ -47,6 +50,10 @@ export default function Output() {
           Selected Bathrooms {selectedBathrooms.map((bath) => bath).join(", ")}
         </p>
         <p>Selected PARK {selectedParks.map((bath) => bath).join(", ")}</p>
+        <p>
+          Completion status{" "}
+          {completionStatus.map((completion) => completion).join(", ")}
+        </p>
       </div>
     </div>
   );
