@@ -4,17 +4,16 @@ import { getChipSearchStyles } from "@/styles/filterStyles";
 import { CitiesType } from "@/types/types";
 import { Chip } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleCompletion } from "@/store/advancedFilter";
+import { toggleItem } from "@/store/advancedFilter";
 import { RootState } from "@/store/store";
 
 export default function Completion() {
   const dispatch = useDispatch();
   const selectedHandover = useSelector(
-    (state: RootState) => state.advancedFilter.completion
+    (state: RootState) => state.advancedFilter.completion,
   );
-
   const chooseCity = (city: CitiesType) => {
-    dispatch(toggleCompletion(city));
+    dispatch(toggleItem({ type: "completion", payload: city }));
   };
 
   return (
@@ -26,7 +25,7 @@ export default function Completion() {
         {COMPLETION.map((city) => {
           const isSelected =
             selectedHandover.findIndex(
-              (selectedCity) => selectedCity.id === city.id
+              (selectedCity) => selectedCity.id === city.id,
             ) >= 0;
 
           return (

@@ -4,7 +4,7 @@ import { getChipSearchStyles } from "@/styles/filterStyles";
 import { CitiesType } from "@/types/types";
 import { Chip } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleHandover } from "@/store/advancedFilter";
+import { toggleItem } from "@/store/advancedFilter";
 import { RootState } from "@/store/store";
 
 export default function HandOverBy() {
@@ -14,7 +14,7 @@ export default function HandOverBy() {
   );
 
   const chooseCity = (city: CitiesType) => {
-    dispatch(toggleHandover(city));
+      dispatch(toggleItem({ type: "handoverBy", payload: city }));
   };
 
   return (
