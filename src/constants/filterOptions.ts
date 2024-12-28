@@ -139,3 +139,30 @@ export const PARKS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, "12+"] as
   | number[]
   | string[];
 export const COMPLETION_STATUS = ["Off Plans", "Ready", "Re-Sale"] as string[];
+
+export const LISTED_BY = [
+  {
+    name: "Aldar",
+    image: "aldar",
+    active_image: "aldar",
+    id: 1,
+  },
+  {
+    name: "Emaar",
+    image: "emaar",
+    active_image: "emaar",
+    id: 2,
+  },
+  {
+    name: "Damac",
+    image: "Damac",
+    active_image: "Damac",
+    id: 3,
+  },
+  {
+    name: "Sobha",
+    image: "Sobha",
+    active_image: "sobha",
+    id: 4,
+  },
+] as UnitTypeFilterProps[];

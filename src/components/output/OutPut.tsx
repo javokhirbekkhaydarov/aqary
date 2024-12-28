@@ -26,6 +26,9 @@ export default function Output() {
   const completionStatus = useSelector(
     (state: RootState) => state.advancedFilter.completion_status
   );
+  const selectedListedBy = useSelector(
+    (state: RootState) => state.advancedFilter.listedBy
+  );
   return (
     <div className="pt-4 flex max-w-[1440px] items-start justify-start rounded border-2 border-stone-700 p-40 py-80 w-full">
       <div>
@@ -54,6 +57,7 @@ export default function Output() {
           Completion status{" "}
           {completionStatus.map((completion) => completion).join(", ")}
         </p>
+        <p>Selected Listed By: {selectedListedBy}</p>
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ import { Parking } from "./Parking";
 import { Location } from "./location/Location";
 import { PriceRange } from "./price/PriceRange";
 import { CompletionStatus } from "./status/CompletionStatus";
+import ListedBy from "./listedBy/ListedBy";
 
 export default function FilterModal() {
   return (
@@ -33,6 +34,7 @@ export default function FilterModal() {
       <Line />
       <CompletionStatus />
       <Line />
+      <ListedBy />
     </div>
   );
 }

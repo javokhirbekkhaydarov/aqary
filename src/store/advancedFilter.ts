@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
   AdvancedFilterState,
-  ChipType,
   CitiesType,
   SelectValuePayload,
 } from "@/types/types";
@@ -16,6 +15,7 @@ const initialState: AdvancedFilterState = {
   baths: [],
   parks: [],
   completion_status: [],
+  listedBy: "",
 };
 
 const initialCities = [
@@ -88,6 +88,9 @@ export const advancedFilter = createSlice({
         targetArray.push(value);
       }
     },
+    selectListedBy: (state, action: PayloadAction<string>) => {
+      state.listedBy = action.payload;
+    },
   },
 });
 
@@ -97,5 +100,6 @@ export const {
   selectCategory,
   selectUnitType,
   selectValue,
+  selectListedBy,
 } = advancedFilter.actions;
 export default advancedFilter.reducer;

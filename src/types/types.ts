@@ -15,6 +15,7 @@ export interface AdvancedFilterState {
   baths: (string | number)[];
   parks: (string | number)[];
   completion_status: string[];
+  listedBy: string;
 }
 export interface FilterDropdownProps {
   value: string;
