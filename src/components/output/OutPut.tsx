@@ -29,11 +29,11 @@ export default function Output() {
   const completionStatus = useSelector(
     (state: RootState) => state.advancedFilter.completion_status
   );
-  const selectedListedBy = useSelector(
-    (state: RootState) => state.advancedFilter.listedBy
-  );
   const selectedOwnership = useSelector(
     (state: RootState) => state.advancedFilter.ownership
+  );
+  const selectedAmenities = useSelector(
+    (state: RootState) => state.amenities.selectedAmenities
   );
   return (
     <div className="pt-4 flex max-w-[1440px] items-start justify-start rounded border-2 border-stone-700 p-40 py-80 w-full">
@@ -52,7 +52,7 @@ export default function Output() {
         <p>Selected category: {selectedCategory}</p>
         <p>Selected Unit type: {selectedUnitType}</p>
         <p>
-          Selected Bedrooms{" "}
+          Selected Bedrooms:
           {selectedBedrooms.map((bedroom) => bedroom).join(", ")}
         </p>
         <p>
@@ -60,7 +60,7 @@ export default function Output() {
         </p>
         <p>Selected PARK {selectedParks.map((bath) => bath).join(", ")}</p>
         <p>
-          Completion status{" "}
+          Completion status:
           {completionStatus.map((completion) => completion).join(", ")}
         </p>
         <p>Selected Listed By: {advancedFilterState.listedBy}</p>
@@ -70,16 +70,20 @@ export default function Output() {
           {formatPrice(filterState.unitArea[1])} KV
         </p>
         <p>
-          Furnishing{" "}
+          Furnishing:
           {advancedFilterState?.furnishing?.map((bath) => bath).join(", ")}
         </p>
         <p>
-          Hand overby{" "}
+          Hand overby:
           {advancedFilterState?.handoverBy?.map((hand) => hand.name).join(", ")}
         </p>
         <p>
-          % Completion{" "}
+          % Completion:
           {advancedFilterState?.completion?.map((hand) => hand.name).join(", ")}
+        </p>
+        <p>
+          Selected Amenities:
+          {selectedAmenities.map((bedroom) => bedroom).join(", ")}
         </p>
       </div>
     </div>
