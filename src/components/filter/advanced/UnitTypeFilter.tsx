@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { tabCategoryStyles, tabStyles } from "@/styles/filterStyles";
+import { tabCategoryStyles } from "@/styles/filterStyles";
 import { useDispatch } from "react-redux";
 import { selectCategory } from "@/store/advancedFilter";
 import { CategoryCard } from "@/components/mini/CategoryCard";

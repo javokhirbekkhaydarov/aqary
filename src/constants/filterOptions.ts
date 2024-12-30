@@ -1,4 +1,4 @@
-import { Amenity, CitiesType, UnitTypeFilterProps } from "@/types/types";
+import { CitiesType, UnitTypeFilterProps } from "@/types/types";
 
 export const CATEGORIES = ["Sale", "Rent", "Swap", "Investment"] as const;
 export const SECTIONS = [

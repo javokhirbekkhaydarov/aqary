@@ -5,9 +5,7 @@ import { CitiesType } from "@/types/types";
 import { Chip } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleCity } from "@/store/advancedFilter";
-import { clearCity } from "@/store/advancedFilter";
 import { RootState } from "@/store/store";
-import Image from "next/image";
 import ClearCity from "./ClearCity";
 export default function Cities() {
   const dispatch = useDispatch();
