@@ -17,8 +17,10 @@ import { Furnishing } from "./furnishing/Furnishing";
 import HandOverBy from "./handoverBy/HandOverBy";
 import Completion from "./completion/Completion";
 import { Amenities } from "./amenities/Amenities";
+import SaveChange from "./save/SaveChange";
+import { FunctionType } from "@/types/types";
 
-export default function FilterModal() {
+export default function FilterModal({ onClick }: FunctionType) {
   return (
     <div className="advanced_filter  bg-white  pt-0 flex flex-col gap-5 items-start justify-start rounded-b-3xl ">
       <div className="text-[28px] px-3">Advanced Filter</div>
@@ -53,6 +55,8 @@ export default function FilterModal() {
       <Completion />
       <Line />
       <Amenities />
+      <Line />
+      <SaveChange onClick={onClick} />
       <Line />
     </div>
   );

@@ -50,7 +50,9 @@ export interface UnitTypeFilterProps {
   id: number;
   onClick: () => void;
 }
-
+export interface FunctionType {
+  onClick: () => void;
+}
 //  STATIC DATA TYPES
 
 export interface CitiesType {
