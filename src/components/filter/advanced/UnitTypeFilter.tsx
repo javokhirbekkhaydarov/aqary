@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { tabCategoryStyles } from "@/styles/filterStyles";
 import { useDispatch } from "react-redux";
-import { selectCategory } from "@/store/advancedFilter";
+import { selectCategory } from "@/store/advancedFilterSlice";
 import { CategoryCard } from "@/components/mini/CategoryCard";
 import { Tab, Tabs } from "@mui/material";
 import { RESIDENTIAL, COMMERCIAL } from "@/constants/filterOptions";

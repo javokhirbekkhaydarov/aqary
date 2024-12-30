@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { selectListedBy } from "@/store/advancedFilter";
+import { selectListedBy } from "@/store/advancedFilterSlice";
 import { CategoryCard } from "@/components/mini/CategoryCard";
 import { LISTED_BY } from "@/constants/filterOptions";
 import Image from "next/image";

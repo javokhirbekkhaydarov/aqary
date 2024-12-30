@@ -4,7 +4,7 @@ import { getChipSearchStyles } from "@/styles/filterStyles";
 import { CitiesType } from "@/types/types";
 import { Chip } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleItem } from "@/store/advancedFilter";
+import { toggleItem } from "@/store/advancedFilterSlice";
 import { RootState } from "@/store/store";
 
 export default function Completion() {

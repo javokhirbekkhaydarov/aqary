@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { selectCategory } from "@/store/advancedFilter";
+import { selectCategory } from "@/store/advancedFilterSlice";
 import { CategoryCard } from "@/components/mini/CategoryCard";
 
 export default function Categories() {

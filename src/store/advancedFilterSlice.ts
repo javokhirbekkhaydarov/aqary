@@ -23,7 +23,7 @@ const initialState: AdvancedFilterState = {
   completion: [],
 };
 
-export const advancedFilter = createSlice({
+export const advancedFilterSlice = createSlice({
   name: "advancedFilter",
   initialState,
   reducers: {
@@ -124,5 +124,5 @@ export const {
   selectValue,
   selectListedBy,
   toggleItem,
-} = advancedFilter.actions;
-export default advancedFilter.reducer;
+} = advancedFilterSlice.actions;
+export default advancedFilterSlice.reducer;

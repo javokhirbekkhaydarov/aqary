@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { selectValue } from "@/store/advancedFilter";
+import { selectValue } from "@/store/advancedFilterSlice";
 import { PARKS } from "@/constants/filterOptions";
 import { Chips } from "@/components/mini/Chips";
 

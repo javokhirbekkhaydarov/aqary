@@ -1,13 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import filterReducer from "./filterSlice";
-import { advancedFilter } from "./advancedFilter";
+import { advancedFilterSlice } from "./advancedFilterSlice";
 import { amenitiesSlice } from "./amenitiesSlice";
 
 export const store = configureStore({
   reducer: {
     filter: filterReducer,
     amenities: amenitiesSlice.reducer,
-    advancedFilter: advancedFilter.reducer,
+    advancedFilter: advancedFilterSlice.reducer,
   },
 });
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { clearCity } from "@/store/advancedFilter";
+import { clearCity } from "@/store/advancedFilterSlice";
 import { RootState } from "@/store/store";
 import Image from "next/image";
 
