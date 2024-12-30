@@ -8,7 +8,6 @@ export interface FilterState {
   priceRange: [number | null, number | null];
   unitArea: [number | null, number | null];
 }
-export interface AmenitiesState {}
 export interface AdvancedFilterState {
   cities: CitiesType[];
   category: string;
