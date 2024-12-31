@@ -20,7 +20,6 @@ export default function Completion() {
     <div className="flex px-3 flex-col items-start gap-2 ">
       <p className="text-[22px] font-medium text-500">% Completion</p>
 
-      {/* HANDOVER */}
       <div className="flex gap-2">
         {COMPLETION.map((city) => {
           const isSelected =
