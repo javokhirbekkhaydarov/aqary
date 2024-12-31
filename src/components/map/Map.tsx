@@ -16,7 +16,7 @@ export default function Map() {
         draggable={false}
       />
       <button className="bg-primary font-geologica rounded-lg py-[10px] px-[16px]  text-white text-[14px] absolute  bottom-4 left-4 right-4">
-        Go To Map
+        Go To map
       </button>
     </a>
   );
