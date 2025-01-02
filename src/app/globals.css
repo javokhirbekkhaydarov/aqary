@@ -90,3 +90,47 @@ a {
   width: 48px;
   z-index: 0;
 }
+
+@media (max-width: 900px) {
+  .hero-text {
+    font-size: 24px;
+    line-height: normal;
+  }
+  .hero {
+    display: flex;
+    flex-direction: column;
+  }
+  .bottom_side {
+    gap: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    top: 120px;
+    bottom: unset;
+  }
+  .map_btn {
+  }
+  .hero-bg {
+    height: 700px !important;
+    object-fit: cover;
+  }
+  .filter_ui {
+    margin-right: 20px;
+  }
+  .filter_ui div button .css-14n99h8-MuiButtonBase-root-MuiButton-root {
+    width: 100%;
+  }
+  .filter_bottom  , .advanced_filter , .popular_card{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .filter_ui .rounded-l-3xl {
+    border-bottom-left-radius: 0;
+  }
+  .map {
+    position: relative;
+  }
+
+  .custom_border {
+    display: none;
+  }
+}

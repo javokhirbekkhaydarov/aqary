@@ -22,8 +22,8 @@ export default function FilterUI() {
   );
 
   return (
-    <div className="filter_ui flex flex-col">
-      <div className="p-[25px] bg-white flex items-center justify-center gap-4 rounded-t-3xl rounded-l-3xl">
+      <div className="filter_ui flex flex-col">
+        <div className="p-[25px] bg-white flex flex-col sm:flex-col md:flex-row items-center justify-center gap-4 rounded-t-3xl rounded-l-3xl">
         <FilterDropdown
           value={section}
           options={SECTIONS}
